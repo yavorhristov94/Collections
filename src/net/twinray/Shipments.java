@@ -8,13 +8,50 @@ public class Shipments {
     Product window = new Product("Window", 10);
 
 
-    @Test
+
     public void shouldAddItems() throws Exception
     {
     shipment.add(door);
     shipment.add(window);
 
-    ship
+    //assertThat those are in the shipment
+
+    shipment.clear();
     }
+
+
+    public void shouldReplaceItems() throws Exception
+    {
+    shipment.add(door);
+    shipment.add(window);
+
+    shipment.replace(door, floorPanel);
+
+    shipment.clear();
+    }
+
+
+    public void shouldNotReplaceItems() throws Exception
+    {
+        shipment.add(window);
+
+        shipment.replace(door, floorPanel);
+        //door was never added tho
+
+        shipment.clear();
+    }
+
+    public void shouldIdentifyVanRequirements() throws Exception
+    {
+     shipment.add(door);
+     shipment.add(window);
+     shipment.add(floorPanel);
+
+     shipment.prepare();
+
+
+    }
+
+    public void assertThat(){}
 
 }
