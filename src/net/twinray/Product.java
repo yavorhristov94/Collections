@@ -1,6 +1,8 @@
 package net.twinray;
 
-public class Product {
+import java.util.Comparator;
+
+public class Product implements Comparator<Product>{
 
     String name = null;
     int weight = 0;
@@ -24,4 +26,12 @@ public class Product {
                 "name'"+ name + '\''+ ", weight=" + weight
                 +'}';
     }
+
+    public int BY_WEIGHT(){}
+    \
+    @Override
+    public int compare(Product p1, Product p2){
+        return  p1.getWeight() - p2.getWeight();
+    }
+
 }

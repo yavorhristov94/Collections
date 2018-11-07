@@ -1,10 +1,11 @@
 package net.twinray;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-public class Shipment implements Iterable<Product> {
+public class Shipment implements Iterable<Product>{
 
 
     private static final int LIGHT_VAN_MAX_WEIGHT = 20;
@@ -31,7 +32,7 @@ public class Shipment implements Iterable<Product> {
     {
     //sort by weight
 
-        products.sort()
+        products.sort(Product.compare()); //comparator here
 
     //find the product index that needs the heavy van
 
@@ -45,4 +46,5 @@ public class Shipment implements Iterable<Product> {
         return products.iterator();
     }
     //we can just delegate. lel
+
 }
