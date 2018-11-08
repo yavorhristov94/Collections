@@ -43,12 +43,14 @@ public class Shipment implements Iterable<Product>{
          {
             //if all products are heavy, assign them accordingly
             heavyVanProducts = products;
+            System.out.println("All products heavy");
          }
 
          else if (splitPoint == -2)
          {
              //if all products are light, assign them accordingly
              lightVanProducts = products;
+             System.out.println("All products light");
          }
 
         else if(splitPoint != -1 && splitPoint != -2)
@@ -57,6 +59,7 @@ public class Shipment implements Iterable<Product>{
             //then split them up in  first light, then heavy
             products.subList(0, splitPoint);
             products.subList(splitPoint, products.size());
+            System.out.println("Products split at index: " + splitPoint);
         }
         else System.out.println("No products");
 
