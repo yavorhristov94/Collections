@@ -13,7 +13,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        genericMethods();
+        Shipments test1 = new Shipments();
+        try {
+            test1.shouldIdentifyVanRequirements();
+        }catch(Exception e){}
+//        genericMethods();
 
         }
 

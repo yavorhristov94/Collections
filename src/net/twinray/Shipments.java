@@ -49,6 +49,8 @@ public class Shipments {
 
      shipment.prepare();
 
+    System.out.println("Light van products: "+shipment.getLightVanProducts());
+    System.out.println("Heavy van products: "+shipment.getHeavyVanProducts());
 
     }
 
