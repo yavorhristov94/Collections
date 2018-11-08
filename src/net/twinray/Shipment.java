@@ -31,9 +31,7 @@ public class Shipment implements Iterable<Product>{
     public void prepare()
     {
     //sort by weight
-
-        BY_WEIGHT BY_WEIGH = new BY_WEIGHT();
-        products.sort(BY_WEIGH); //comparator here
+        products.sort(Product.BY_WEIGHT); //comparator here
 
     //find the product index that needs the heavy van
         int splitPoint  = findSplitPoint();
