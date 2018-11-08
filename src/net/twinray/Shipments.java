@@ -43,9 +43,10 @@ public class Shipments {
 
     public void shouldIdentifyVanRequirements() throws Exception
     {
-     shipment.add(door);
+     shipment.add(window);
      shipment.add(window);
      shipment.add(floorPanel);
+     shipment.add(door);
 
      shipment.prepare();
 

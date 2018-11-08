@@ -57,9 +57,9 @@ public class Shipment implements Iterable<Product>{
         {
             //If the list is not full of all heavy or all light
             //then split them up in  first light, then heavy
-            products.subList(0, splitPoint);
-            products.subList(splitPoint, products.size());
-            System.out.println("Products split at index: " + splitPoint);
+            lightVanProducts = products.subList(0, splitPoint);
+            heavyVanProducts = products.subList(splitPoint, products.size());
+            System.out.println("Products split at product: " + (splitPoint+1));
         }
         else System.out.println("No products");
 
@@ -67,25 +67,32 @@ public class Shipment implements Iterable<Product>{
 
     public int findSplitPoint()
     {
-        int NoProducts = -3;
+        if(products.isEmpty()){return  -3;}
 
         //if ALL items are heavy, return a corresponding index
-        if(products.get(0).getWeight() > LIGHT_VAN_MAX_WEIGHT){return -1;}
+        else if(products.get(0).getWeight() > LIGHT_VAN_MAX_WEIGHT){return -1;}
 
-        for (int i = 0; i < products.size(); i++)
-        {
+        //If the last product is still a light one
+        else if (products.get(products.size()-1).getWeight() < LIGHT_VAN_MAX_WEIGHT ) return -2;
+
+        else {
+            //and finally, if there are different products in it
+        for (int i = 0; i < products.size(); i++) {
             final Product product = products.get(i);
 
             //if the weight of the product is for heavy van
             //mark it as the first by weight in the list to need it
             //thus it being the split point
-            if(product.getWeight()>LIGHT_VAN_MAX_WEIGHT){return i;}
+            if (product.getWeight() > LIGHT_VAN_MAX_WEIGHT) {
+                return i;
+            }
 
             //and if none are heavier and the list isn't empty, then return -2
-            else if (products.size() > 0) return -2;
+
 
         }
-        return NoProducts;
+    }
+        return -3;
     }
     @Override
     public Iterator<Product> iterator() {
