@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
+import static net.twinray.ProductFixtures.bobs;
+import static net.twinray.ProductFixtures.kates;
+
 public class Main {
 
 
@@ -15,9 +18,15 @@ public class Main {
 
         Shipments test1 = new Shipments();
         try {
-            test1.shouldIdentifyVanRequirements();
+//            test1.shouldIdentifyVanRequirements();
         }catch(Exception e){}
 //        genericMethods();
+
+
+        ProductCatalogue catalogue = new ProductCatalogue();
+
+        catalogue.isSuppliedBy(bobs);
+        catalogue.isSuppliedBy(kates);
 
         }
 
