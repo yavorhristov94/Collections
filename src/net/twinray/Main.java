@@ -18,7 +18,9 @@ public class Main {
         helpDesk.enquire(Customer.JACK, Category.PHONE);
         helpDesk.enquire(Customer.JILL, Category.PRINTER);
 
-        helpDesk.processAllEnquiries();
+        helpDesk.processPrinterEnquiries();
+        helpDesk.processGeneralEnquiries();
+        helpDesk.processPrinterEnquiries();
 
         }
 
